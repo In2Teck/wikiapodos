@@ -1,249 +1,264 @@
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
-
-DROP SCHEMA IF EXISTS `mydb` ;
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
-USE `mydb` ;
-
--- -----------------------------------------------------
--- Table `mydb`.`configuraciones`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`configuraciones` ;
-
-CREATE  TABLE IF NOT EXISTS `mydb`.`configuraciones` (
-  `id` INT NOT NULL ,
-  `llave` VARCHAR(45) NULL ,
-  `valor` TEXT NULL ,
-  PRIMARY KEY (`id`) )
-ENGINE = InnoDB;
+-- MySQL Administrator dump 1.4
+--
+-- ------------------------------------------------------
+-- Server version  5.1.54-log
 
 
--- -----------------------------------------------------
--- Table `mydb`.`usuarios`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`usuarios` ;
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
 
-CREATE  TABLE IF NOT EXISTS `mydb`.`usuarios` (
-  `id` INT NOT NULL ,
-  `facebook_id` VARCHAR(45) NULL ,
-  `nombre` VARCHAR(45) NULL ,
-  `apellido` VARCHAR(45) NULL ,
-  `email` VARCHAR(45) NULL ,
-  `es_fan` VARCHAR(45) NULL ,
-  PRIMARY KEY (`id`) )
-ENGINE = InnoDB;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 
--- -----------------------------------------------------
--- Table `mydb`.`apodos`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`apodos` ;
+--
+-- Create schema jc_wikiapodos
+--
 
-CREATE  TABLE IF NOT EXISTS `mydb`.`apodos` (
-  `id` INT NOT NULL ,
-  `autor_id` INT NULL ,
-  `nombre` VARCHAR(45) NULL COMMENT '	' ,
-  `prefijo` VARCHAR(45) NULL ,
-  `descripcion` VARCHAR(45) NULL ,
-  `imagen_url` VARCHAR(45) NULL ,
-  `calificacion` DOUBLE NULL ,
-  `visible` TINYINT(1) NULL ,
-  `destacado` TINYINT(1) NULL ,
-  PRIMARY KEY (`id`) )
-ENGINE = InnoDB;
+CREATE DATABASE IF NOT EXISTS jc_wikiapodos;
+USE jc_wikiapodos;
 
+--
+-- Definition of table `jc_wikiapodos`.`apodos`
+--
 
--- -----------------------------------------------------
--- Table `mydb`.`compartidos`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`compartidos` ;
-
-CREATE  TABLE IF NOT EXISTS `mydb`.`compartidos` (
-  `id` INT NOT NULL ,
-  `usuario_id` INT NULL ,
-  `apodo_id` INT NULL ,
-  `fecha` VARCHAR(45) NULL ,
-  `origen` VARCHAR(45) NULL ,
-  PRIMARY KEY (`id`) ,
-  INDEX `usuarios_comp_idx` (`usuario_id` ASC) ,
-  INDEX `apodos_comp_idx` (`apodo_id` ASC) ,
-  CONSTRAINT `usuarios_comp`
-    FOREIGN KEY (`usuario_id` )
-    REFERENCES `mydb`.`usuarios` (`id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `apodos_comp`
-    FOREIGN KEY (`apodo_id` )
-    REFERENCES `mydb`.`apodos` (`id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+DROP TABLE IF EXISTS `jc_wikiapodos`.`apodos`;
+CREATE TABLE  `jc_wikiapodos`.`apodos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `autor_id` varchar(45) DEFAULT NULL,
+  `nombre` varchar(45) DEFAULT NULL COMMENT '	',
+  `prefijo` varchar(45) DEFAULT NULL,
+  `descripcion` varchar(45) DEFAULT NULL,
+  `imagen_url` varchar(45) DEFAULT NULL,
+  `calificacion` double DEFAULT NULL,
+  `visible` tinyint(1) DEFAULT NULL,
+  `destacado` tinyint(1) DEFAULT NULL,
+  `fecha_creacion` datetime NOT NULL,
+  `fecha_actualizacion` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
--- -----------------------------------------------------
--- Table `mydb`.`apodos_usuarios`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`apodos_usuarios` ;
+--
+-- Definition of table `jc_wikiapodos`.`apodos_usuarios`
+--
 
-CREATE  TABLE IF NOT EXISTS `mydb`.`apodos_usuarios` (
-  `usuario_desde_id` VARCHAR(45) NOT NULL ,
-  `usuario_para_id` VARCHAR(45) NULL ,
-  `apodo_id` INT NULL ,
-  `status` VARCHAR(45) NULL ,
-  `visible` TINYINT(1) NULL ,
-  PRIMARY KEY (`usuario_desde_id`) ,
-  INDEX `apodos_idx` (`apodo_id` ASC) ,
-  CONSTRAINT `usuario_desde`
-    FOREIGN KEY (`apodo_id` )
-    REFERENCES `mydb`.`usuarios` (`id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `apodos`
-    FOREIGN KEY (`apodo_id` )
-    REFERENCES `mydb`.`apodos` (`id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+DROP TABLE IF EXISTS `jc_wikiapodos`.`apodos_usuarios`;
+CREATE TABLE  `jc_wikiapodos`.`apodos_usuarios` (
+  `usuario_desde_id` varchar(45) NOT NULL,
+  `usuario_para_id` varchar(45) NOT NULL,
+  `apodo_id` int(11) NOT NULL,
+  `status` varchar(45) DEFAULT NULL,
+  `visible` tinyint(1) DEFAULT NULL,
+  `fecha_creacion` datetime NOT NULL,
+  `fecha_actualizacion` datetime NOT NULL,
+  PRIMARY KEY (`usuario_desde_id`,`usuario_para_id`,`apodo_id`),
+  KEY `apodos_idx` (`apodo_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
--- -----------------------------------------------------
--- Table `mydb`.`cuerpos`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`cuerpos` ;
+--
+-- Definition of table `jc_wikiapodos`.`calificaciones`
+--
 
-CREATE  TABLE IF NOT EXISTS `mydb`.`cuerpos` (
-  `id` INT NOT NULL ,
-  `descripcion` VARCHAR(45) NULL ,
-  `imagen_url` VARCHAR(45) NULL ,
-  PRIMARY KEY (`id`) )
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`categorías`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`categorías` ;
-
-CREATE  TABLE IF NOT EXISTS `mydb`.`categorías` (
-  `id` INT NOT NULL ,
-  `descripcion` VARCHAR(45) NULL ,
-  `imagen_url` VARCHAR(45) NULL ,
-  PRIMARY KEY (`id`) )
-ENGINE = InnoDB;
+DROP TABLE IF EXISTS `jc_wikiapodos`.`calificaciones`;
+CREATE TABLE  `jc_wikiapodos`.`calificaciones` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `usuario_id` varchar(45) NOT NULL,
+  `apodo_id` int(11) DEFAULT NULL,
+  `calificacion` int(11) DEFAULT NULL,
+  `fecha_creacion` datetime NOT NULL,
+  `fecha_actualizacion` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `apodo_calif_idx` (`apodo_id`),
+  KEY `usuario_calif_idx` (`usuario_id`),
+  CONSTRAINT `usuario_calif` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`facebook_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `apodo_calif` FOREIGN KEY (`apodo_id`) REFERENCES `apodos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
--- -----------------------------------------------------
--- Table `mydb`.`objetos`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`objetos` ;
+--
+-- Definition of table `jc_wikiapodos`.`categorias`
+--
 
-CREATE  TABLE IF NOT EXISTS `mydb`.`objetos` (
-  `id` INT NOT NULL ,
-  `categoria_id` INT NULL ,
-  `descripcion` VARCHAR(45) NULL ,
-  `imagen_url` VARCHAR(45) NULL ,
-  PRIMARY KEY (`id`) ,
-  INDEX `obj_categoria_idx` (`categoria_id` ASC) ,
-  CONSTRAINT `obj_categoria`
-    FOREIGN KEY (`categoria_id` )
-    REFERENCES `mydb`.`categorías` (`id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+DROP TABLE IF EXISTS `jc_wikiapodos`.`categorias`;
+CREATE TABLE  `jc_wikiapodos`.`categorias` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(45) DEFAULT NULL,
+  `imagen_url` varchar(45) DEFAULT NULL,
+  `fecha_creacion` datetime NOT NULL,
+  `fecha_actualizacion` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `jc_wikiapodos`.`categorias`
+--
 
--- -----------------------------------------------------
--- Table `mydb`.`table1`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`table1` ;
-
-CREATE  TABLE IF NOT EXISTS `mydb`.`table1` (
-)
-ENGINE = InnoDB;
+/*!40000 ALTER TABLE `categorias` DISABLE KEYS */;
+LOCK TABLES `categorias` WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE `categorias` ENABLE KEYS */;
 
 
--- -----------------------------------------------------
--- Table `mydb`.`imagenes`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`imagenes` ;
+--
+-- Definition of table `jc_wikiapodos`.`compartidos`
+--
 
-CREATE  TABLE IF NOT EXISTS `mydb`.`imagenes` (
-  `id` INT NOT NULL ,
-  `cuerpo_id` INT NULL ,
-  `objeto_id` INT NULL ,
-  `imagen_url` VARCHAR(45) NULL ,
-  PRIMARY KEY (`id`) ,
-  INDEX `imagen_cuerpo_idx` (`cuerpo_id` ASC) ,
-  INDEX `imagen_objeto_idx` (`objeto_id` ASC) ,
-  CONSTRAINT `imagen_cuerpo`
-    FOREIGN KEY (`cuerpo_id` )
-    REFERENCES `mydb`.`cuerpos` (`id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `imagen_objeto`
-    FOREIGN KEY (`objeto_id` )
-    REFERENCES `mydb`.`objetos` (`id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+DROP TABLE IF EXISTS `jc_wikiapodos`.`compartidos`;
+CREATE TABLE  `jc_wikiapodos`.`compartidos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `usuario_id` varchar(45) DEFAULT NULL,
+  `apodo_id` int(11) DEFAULT NULL,
+  `fecha` varchar(45) DEFAULT NULL,
+  `origen` varchar(45) DEFAULT NULL,
+  `fecha_creacion` datetime NOT NULL,
+  `fecha_actualizacion` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `usuarios_comp_idx` (`usuario_id`),
+  KEY `apodos_comp_idx` (`apodo_id`),
+  CONSTRAINT `apodos_comp` FOREIGN KEY (`apodo_id`) REFERENCES `apodos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
--- -----------------------------------------------------
--- Table `mydb`.`calificaciones`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`calificaciones` ;
+--
+-- Definition of table `jc_wikiapodos`.`configuraciones`
+--
 
-CREATE  TABLE IF NOT EXISTS `mydb`.`calificaciones` (
-  `id` INT NOT NULL ,
-  `usuario_id` INT NULL ,
-  `apodo_id` INT NULL ,
-  `calificacion` INT NULL ,
-  PRIMARY KEY (`id`) ,
-  INDEX `apodo_calif_idx` (`apodo_id` ASC) ,
-  INDEX `usuario_calif_idx` (`usuario_id` ASC) ,
-  CONSTRAINT `usuario_calif`
-    FOREIGN KEY (`usuario_id` )
-    REFERENCES `mydb`.`usuarios` (`id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `apodo_calif`
-    FOREIGN KEY (`apodo_id` )
-    REFERENCES `mydb`.`apodos` (`id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+DROP TABLE IF EXISTS `jc_wikiapodos`.`configuraciones`;
+CREATE TABLE  `jc_wikiapodos`.`configuraciones` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `llave` varchar(45) DEFAULT NULL,
+  `valor` text,
+  `fecha_creacion` datetime NOT NULL,
+  `fecha_actualizacion` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `jc_wikiapodos`.`configuraciones`
+--
 
--- -----------------------------------------------------
--- Table `mydb`.`reportes`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`reportes` ;
-
-CREATE  TABLE IF NOT EXISTS `mydb`.`reportes` (
-  `id` INT NOT NULL ,
-  `usuario_id` INT NULL ,
-  `apodo_id` INT NULL ,
-  `fecha` VARCHAR(45) NULL ,
-  `razon` TEXT NULL ,
-  PRIMARY KEY (`id`) ,
-  INDEX `usuarios_comp_idx` (`usuario_id` ASC) ,
-  INDEX `apodos_comp_idx` (`apodo_id` ASC) ,
-  CONSTRAINT `usuarios_comp0`
-    FOREIGN KEY (`usuario_id` )
-    REFERENCES `mydb`.`usuarios` (`id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `apodos_comp0`
-    FOREIGN KEY (`apodo_id` )
-    REFERENCES `mydb`.`apodos` (`id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-USE `mydb` ;
+/*!40000 ALTER TABLE `configuraciones` DISABLE KEYS */;
+LOCK TABLES `configuraciones` WRITE;
+INSERT INTO `jc_wikiapodos`.`configuraciones` VALUES  (1,'titulo_pagina','Wikiapodos','2013-06-24 14:14:16','2013-06-24 14:14:16'),
+ (2,'descripcion_pagina','Descripción de la página','2013-06-24 14:14:16','2013-06-24 14:14:16'),
+ (3,'url_portal','https://apps.t2omedia.com.mx/php1/wikiapodos/','2013-06-24 14:14:16','2013-06-24 14:14:16'),
+ (4,'url_portal_fb','http://www.facebook.com/In2Teck/app_288059641339246','2013-06-24 14:14:16','2013-06-24 14:14:16'),
+ (5,'url_app_fb','http://apps.facebook.com/wikiapodos','2013-06-24 14:14:16','2013-06-24 14:14:16'),
+ (6,'fb_app_id','288059641339246','2013-06-24 14:14:16','2013-06-24 14:14:16'),
+ (7,'fb_app_secret','351d16a6b16d21d2fbd4af74b0b97d63','2013-06-24 14:14:16','2013-06-24 14:14:16'),
+ (8,'fb_like_page_id','116098461808546','2013-06-24 14:14:16','2013-06-24 14:14:16'),
+ (9,'fb_permissions','email,publish_stream,user_likes','2013-06-24 14:14:16','2013-06-24 14:14:16'),
+ (10,'url_imagenes_facebook','https://graph.facebook.com/{id}/picture','2013-06-24 14:14:16','2013-06-24 14:14:16'),
+ (11,'pagination_limit_apodo','15','2013-06-24 14:14:16','2013-06-24 14:14:16'),
+ (12,'pagination_limit_reporte','20','2013-06-24 14:14:16','2013-06-24 14:14:16'),
+ (13,'youtube_video_id','-T07ms9Brow','2013-06-24 14:14:16','2013-06-24 14:14:16'),
+ (14,'ultima_modificacion','2013-06-27 12:01:16','2013-06-24 14:14:16','2013-06-24 14:14:16');
+UNLOCK TABLES;
+/*!40000 ALTER TABLE `configuraciones` ENABLE KEYS */;
 
 
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+--
+-- Definition of table `jc_wikiapodos`.`cuerpos`
+--
+
+DROP TABLE IF EXISTS `jc_wikiapodos`.`cuerpos`;
+CREATE TABLE  `jc_wikiapodos`.`cuerpos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(45) DEFAULT NULL,
+  `imagen_url` varchar(45) DEFAULT NULL,
+  `fecha_creacion` datetime NOT NULL,
+  `fecha_actualizacion` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+-- Definition of table `jc_wikiapodos`.`imagenes`
+--
+
+DROP TABLE IF EXISTS `jc_wikiapodos`.`imagenes`;
+CREATE TABLE  `jc_wikiapodos`.`imagenes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cuerpo_id` int(11) DEFAULT NULL,
+  `objeto_id` int(11) DEFAULT NULL,
+  `imagen_url` varchar(45) DEFAULT NULL,
+  `fecha_creacion` datetime NOT NULL,
+  `fecha_actualizacion` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `imagen_cuerpo_idx` (`cuerpo_id`),
+  KEY `imagen_objeto_idx` (`objeto_id`),
+  CONSTRAINT `imagen_cuerpo` FOREIGN KEY (`cuerpo_id`) REFERENCES `cuerpos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `imagen_objeto` FOREIGN KEY (`objeto_id`) REFERENCES `objetos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+-- Definition of table `jc_wikiapodos`.`objetos`
+--
+
+DROP TABLE IF EXISTS `jc_wikiapodos`.`objetos`;
+CREATE TABLE  `jc_wikiapodos`.`objetos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `categoria_id` int(11) DEFAULT NULL,
+  `descripcion` varchar(45) DEFAULT NULL,
+  `imagen_url` varchar(45) DEFAULT NULL,
+  `fecha_creacion` datetime NOT NULL,
+  `fecha_actualizacion` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `obj_categoria_idx` (`categoria_id`),
+  CONSTRAINT `obj_categoria` FOREIGN KEY (`categoria_id`) REFERENCES `categorías` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+-- Definition of table `jc_wikiapodos`.`reportes`
+--
+
+DROP TABLE IF EXISTS `jc_wikiapodos`.`reportes`;
+CREATE TABLE  `jc_wikiapodos`.`reportes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `usuario_id` varchar(45) DEFAULT NULL,
+  `apodo_id` int(11) DEFAULT NULL,
+  `fecha` varchar(45) DEFAULT NULL,
+  `razon` text,
+  `fecha_creacion` datetime NOT NULL,
+  `fecha_actualizacion` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `usuarios_comp_idx` (`usuario_id`),
+  KEY `apodos_comp_idx` (`apodo_id`),
+  CONSTRAINT `apodos_comp0` FOREIGN KEY (`apodo_id`) REFERENCES `apodos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+-- Definition of table `jc_wikiapodos`.`usuarios`
+--
+
+DROP TABLE IF EXISTS `jc_wikiapodos`.`usuarios`;
+CREATE TABLE  `jc_wikiapodos`.`usuarios` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `facebook_id` varchar(45) DEFAULT NULL,
+  `nombre` varchar(45) DEFAULT NULL,
+  `apellido` varchar(45) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `es_fan` varchar(45) DEFAULT NULL,
+  `fecha_creacion` datetime NOT NULL,
+  `fecha_actualizacion` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `facebook_id_UNIQUE` (`facebook_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

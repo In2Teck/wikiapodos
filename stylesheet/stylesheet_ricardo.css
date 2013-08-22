@@ -1,0 +1,518 @@
+.apodo_izquierda {
+	position: relative;
+	display: inline-block;
+	
+	width: 237px;
+	
+	vertical-align: top;
+}
+
+.apodo_derecha {
+	position: relative;
+	display: inline-block;
+	
+	width: 471px;
+	
+	text-align: left;
+	vertical-align: top;
+}
+
+.apodo_avatar {
+	position: relative;
+	
+	width: 222px;
+	height: 286px;
+	
+	background-color: #9B082E;
+	color: #FFEF51;
+}
+
+.apodo_avatar .avatar {
+	position: absolute;
+	
+	top: 8px;
+	left: 8px;
+}
+
+.apodo_avatar .avatar img {
+	width: 206px;
+	height: 206px;
+}
+
+.apodo_avatar .creador {
+	position: absolute;
+	
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 64px;
+	
+	background-color: #820022;
+	
+	overflow: hidden;
+}
+
+.apodo_avatar .creador .imagen {
+	position: absolute;
+	
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 70px;
+	
+	background-color: #620017;
+}
+
+.apodo_avatar .creador .imagen img {
+	border-style: solid;
+	border-width: 1px;
+	border-color: #FFEF51;
+	
+	margin-top: 6px;
+}
+
+.apodo_avatar .creador .texto {
+	position: absolute;
+	
+	top: 20px;
+	left: 78px;
+	
+	font-size: 140%;
+}
+
+.apodo_avatar .creador .nombre {
+	position: absolute;
+	
+	top: 40px;
+	left: 78px;
+	
+	font-size: 200%;
+}
+
+.apodo_compartir {
+	position: relative;
+	
+	width: 228px;
+	margin-top: 16px;
+	
+	text-align: left;
+}
+
+.apodo_asignar {
+	position: relative;
+	
+	width: 222px;
+	margin-top: 16px;
+}
+
+.apodo_calificar {
+	position: relative;
+	
+	width: 222px;
+	margin-top: 16px;
+}
+
+.apodo_calificar .texto {	
+	height: 24px;
+	
+	background-color: #820022;
+	color: #FFEF51;
+	
+	font-size: 150%;
+}
+
+.apodo_calificar .estrellas {	
+	height: 36px;
+	
+	background-color: #9B082E;
+}
+
+.apodo_calificar .estrella {
+	display: inline-block;
+	
+	margin-left: -1px;
+	margin-right: -1px;
+}
+
+.apodo_calificar .calificacion_promedio {	
+	height: 20px;
+	
+	background-color: #820022;
+	color: #FFEF51;
+	
+	font-size: 120%;
+}
+
+.apodo_crear {
+	position: relative;
+	
+	width: 222px;
+	margin-top: 16px;
+}
+
+.apodo_nombre {
+	font-size: 400%;
+	
+	color: #9B082E;
+}
+
+.apodo_descripcion {
+	width: 483px;
+	min-height: 93px;
+	max-height: 250px;
+	
+	background-color: #9B082E;
+	color: #FFEF51;
+	overflow: auto;
+}
+
+.apodo_descripcion .texto {
+	font-size: 200%;
+		
+	padding: 8px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.apodo_tags {
+	font-size: 200%;
+	
+	width: 483px;
+	
+	margin-top: 25px;
+}
+
+.apodo_tags .texto {
+	width: 109px;
+	background-color: #9B082E;
+	color: #FFEF51;
+	
+	padding: 8px;
+	padding-top: 3px;
+	padding-bottom: 2px;
+}
+
+.apodo_tags .facebook {
+	background-color: #9B082E;
+	color: #FFEF51;
+}
+
+.apodo_tags .facebook .amigos {
+	position: relative;
+	
+	left: 0;
+	right: 0;
+	min-height: 114px;
+	max-height: 216px;
+	
+	padding: 4px;
+	padding-left: 5px;
+	
+	overflow: auto;
+		
+	text-align: left;
+	z-index: 0;
+}
+
+.apodo_asignar_amigos .ventana .amigos .amigo .pendiente img, .apodo_asignar_amigos .ventana .amigos .amigo .aceptado img, .apodo_asignar_amigos .ventana .amigos .amigo .rechazado img {
+	position: absolute;
+	
+	top: 0px;
+	right: 0px;
+	width: 50px;
+    height: 50px;
+	
+	z-index: 20;
+}
+
+.apodo_asignar_amigos .ventana .amigos .amigo .paloma img {
+	position: absolute;
+	
+	top: 0px;
+	right: 0px;
+	width: 50px;
+	
+	z-index: 20;
+}
+
+.apodos_overlay {
+	width: 780px;
+	height: 624px;
+	
+	position: absolute;
+	
+	top: 75px;
+	left: 16px;
+	
+	background: #000000;
+	
+	z-index: 10000;
+	
+	filter: alpha(opacity=90);
+	-moz-opacity:0.9;
+	-khtml-opacity: 0.9;
+	opacity: 0.9;
+}
+
+.apodo_asignar_amigos {
+	position: absolute;
+	top: 64px;
+	left: 86px;
+	
+	width: 600px;
+	
+	z-index: 10001;
+	background: white;
+
+}
+
+.apodo_asignar_amigos .boton_cerrar {
+	position: absolute;
+	
+	right: -12px;
+	top: 0px;
+}
+
+.apodo_asignar_amigos .boton_cerrar img{
+	width: 67px;
+}
+
+.apodo_asignar_amigos .ventana {
+	position: absolute;
+	width: 600px;
+	height: 457px;
+	
+	top: 25px;
+		
+	background: #FFEF51;
+	
+	border: 6px solid #DBC92F;
+}
+
+.apodo_asignar_amigos .ventana .titulo {
+	display: inline-block;
+	width: 100%;
+	height: 54px;
+	
+	background: #811430;
+	color: #FFEF51;
+	font-size: 300%;
+	line-height: 140%;
+	
+	margin-top: 0px;
+}
+
+.apodo_asignar_amigos .ventana .buscador {
+	position: absolute;
+	width: 225px;
+	height: 25px;
+	
+	top: 75px;
+	left: 187px;
+	
+	white-space: nowrap;
+}
+
+.apodo_asignar_amigos .ventana .buscador span {
+	display: inline-block;
+}
+
+.apodo_asignar_amigos .ventana .buscador img {
+	width: 33px;
+	height: 33px;
+	
+	cursor: pointer;
+}
+
+.apodo_asignar_amigos .ventana .buscador input#texto_busqueda {
+	position: relative;
+	
+	background-color: #9B082E;
+	color: #FFEF51;
+	
+	width: 200px;
+	
+	top: -9px;
+	padding-right: 3px;
+	
+	font-size: 24px;
+	
+	text-align: center;
+	
+	font-family: Aldo, Helvetica, Arial, sans-serif;
+	text-transform: uppercase;
+}
+
+.apodo_asignar_amigos .ventana .amigos {
+	position: absolute;
+	width: 484px;
+	height: 236px;
+	
+	top: 125px;
+	left: 67px;
+	
+	background: #811430;
+	overflow: auto;
+	
+	text-align: left;
+}
+
+.apodo_asignar_amigos .ventana .boton_enviar {
+	position: absolute;
+	width: 100%;
+	
+	bottom: 26px;
+}
+
+.apodo_tags .facebook .amigos .amigo  {
+	position: relative;
+	display: inline-block;
+	
+	border: 1px solid #FFEF51;
+	
+	width: 50px;
+	height: 50px;
+	
+	margin-left: 1px;
+	margin-bottom: 0px;
+	margin-right: 0px;
+	margin-top: 2px;
+	
+	overflow: hidden;
+}
+
+.apodo_asignar_amigos .ventana .amigos .amigo  {
+	position: relative;
+	display: inline-block;
+	
+	border: 1px solid #FFEF51;
+	
+	width: 50px;
+	height: 50px;
+	
+	margin-left: 5px;
+	margin-top: 5px;
+	margin-right: -1px;
+	margin-bottom: -1px;
+	
+	overflow: hidden;
+}
+
+.apodo_tags .facebook .amigos .amigo .thumbnail, .apodo_asignar_amigos .ventana .amigos .amigo .thumbnail {
+	position: absolute;
+	
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.apodo_tags .facebook .amigos .amigo .thumbnail img, .apodo_asignar_amigos .ventana .amigos .amigo .thumbnail img {
+	width: 50px;
+	height: 50px;
+}
+
+.apodo_tags .facebook .amigos .amigo:hover .nombre, .apodo_asignar_amigos .ventana .amigos .amigo:hover .nombre {
+	display: inline-block;
+}
+
+.apodo_tags .facebook .amigos .amigo .nombre, .apodo_asignar_amigos .ventana .amigos .amigo .nombre {
+	display: none;
+	position: absolute;
+	
+	top: 37px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	
+	background: #FFEF51;
+	color: #9B082E;
+	
+	font-size: 13px;
+	
+	text-align: center;
+	vertical-align: bottom;
+	
+	z-index: 20;
+}
+
+.apodo_asignar_amigos .ventana .amigos .amigo .paloma {
+	display: none;
+}
+
+.apodo_asignar_amigos .ventana .amigos .amigo .paloma img{
+	position: absolute;
+	
+	top: 0px;
+	right: 0px;
+	width: 15px;
+	
+	z-index: 20;
+}
+
+.apodo_asignar_amigos .ventana .amigos .amigo .cuadro {
+	display: none;
+	position: absolute;
+	
+	top: 0;
+	left: 0;
+	width: 50px;
+	height: 50px;
+	
+	background-color: #FFEF51;
+	
+	opacity: 0.6;
+	filter: alpha(opacity=60); /* For IE8 and earlier */
+	
+	z-index: 10;
+}
+
+
+
+
+/** CREADOR **/
+
+.creador_amigos .buscador {
+	position: absolute;
+	width: 260px;
+	height: 29px;
+	
+	top: -2px;
+	right: 12px;
+	
+	background-color: #9B082E;
+	
+	white-space: nowrap;
+	
+	text-align: right;
+}
+
+.creador_amigos .buscador span {
+	display: inline-block;
+}
+
+.creador_amigos .buscador img {
+	width: 29px;
+	height: 29px;
+	
+	cursor: pointer;
+}
+
+.creador_amigos .buscador input#texto_busqueda {
+	position: relative;
+	
+	background-color: #9B082E;
+	color: #FFEF51;
+	
+	width: 200px;
+	
+	top: -8px;
+	padding-right: 3px;
+	
+	font-size: 20px;
+	
+	text-align: center;
+	
+	font-family: Aldo, Helvetica, Arial, sans-serif;
+	text-transform: uppercase;
+}

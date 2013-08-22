@@ -1,0 +1,2370 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	overflow: hidden;
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+em {
+	color: #9B082E;
+}
+a:link, a:active, a:visited {
+	text-decoration: none !important;
+	
+	color: #9B082E;
+}
+a:hover {
+	color: #000000;
+}
+
+/** FONTS **/
+@font-face {
+	font-family: Aldo;
+	src: url('fonts/Aldo.ttf');
+	font-weight: regular;
+}
+
+/** HTML **/
+html {
+	overflow: -moz-scrollbars-vertical;
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
+	background-color: #FFFFFF;
+}
+body {
+	font-family: Aldo, Helvetica, Arial, sans-serif;
+	text-transform: uppercase;
+	
+	margin: 0px;
+	padding: 0px;
+}
+
+/** PAGINA **/
+#page {
+	position: relative;
+	
+	width: 810px;
+	height: 830px;
+	margin: 0 auto;
+	
+	background: url('../images/fondo.png');
+	background-repeat: no-repeat;
+}
+#loader {
+	display: none;
+	position: absolute;
+	
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	
+	background-color: #000000;
+	
+	opacity: 0.4;
+	filter: alpha(opacity=40); /* For IE8 and earlier */
+	
+	z-index: 2000;
+}
+#loader #spinner {
+	position: absolute;
+	
+	top: 340px;
+	left: 340px;
+	width: 120px;
+	height: 120px;
+}
+#ayuda_wikiapodos {
+	display: none;
+	position: absolute;
+	
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	
+	background: url('../images/ayuda_fondo.png');
+	
+	z-index: 2000;
+}
+#ayuda_wikiapodos #ayuda_1, #ayuda_wikiapodos #ayuda_2,
+#ayuda_wikiapodos #ayuda_3, #ayuda_wikiapodos #ayuda_4,
+#ayuda_wikiapodos #ayuda_5, #ayuda_wikiapodos #ayuda_6,
+#ayuda_wikiapodos #ayuda_cerrar {
+	position: absolute;
+	
+	z-index: 2001;
+}
+#ayuda_wikiapodos #ayuda_cerrar {
+	top: 20px;
+	right: 20px;
+}
+#ayuda_wikiapodos #ayuda_1 {
+	top: 65px;
+	left: 270px;
+}
+#ayuda_wikiapodos #ayuda_2 {
+	top: 210px;
+	left: 25px;
+}
+#ayuda_wikiapodos #ayuda_3 {
+	top: 345px;
+	left: 200px;
+}
+#ayuda_wikiapodos #ayuda_4 {
+	top: 310px;
+	left: 460px;
+}
+#ayuda_wikiapodos #ayuda_5 {
+	top: 405px;
+	left: 590px;
+}
+#ayuda_wikiapodos #ayuda_6 {
+	top: 520px;
+	left: 240px;
+}
+
+#ayuda_creador {
+	display: none;
+	position: absolute;
+	
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	
+	background: url('../images/ayuda_fondo.png');
+	
+	z-index: 2000;
+}
+#ayuda_creador #ayuda_1, #ayuda_creador #ayuda_2,
+#ayuda_creador #ayuda_3, #ayuda_creador #ayuda_4,
+#ayuda_creador #ayuda_5, #ayuda_creador #ayuda_6,
+#ayuda_creador #ayuda_cerrar {
+	position: absolute;
+	
+	z-index: 2001;
+}
+#ayuda_creador #ayuda_cerrar {
+	top: 20px;
+	right: 20px;
+}
+#ayuda_creador #ayuda_1 {
+	top: 65px;
+	left: 270px;
+}
+#ayuda_creador #ayuda_2 {
+	top: 200px;
+	left: 15px;
+}
+#ayuda_creador #ayuda_3 {
+	top: 200px;
+	left: 500px;
+}
+#ayuda_creador #ayuda_4 {
+	top: 340px;
+	left: 400px;
+}
+#ayuda_creador #ayuda_5 {
+	top: 390px;
+	left: 60px;
+}
+#ayuda_creador #ayuda_6 {
+	top: 580px;
+	left: 460px;
+}
+
+#header {
+	position: absolute;
+	
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	height: 84px;
+}
+#content {
+	position: absolute;
+	
+	top: 84px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+}
+#footer {
+	position: absolute;
+	
+	top: 800px;
+	left: 0px;
+	right: 0px;
+	
+	width: 100%;
+	height: 30px;
+	
+	clear: both;
+	
+	text-align: center;
+	font-size: 2em;
+	padding-top: 0.3em;
+}
+
+#menu {
+	margin: 0 auto;
+	margin-top: 30px;
+	
+	text-align: center;
+}
+
+#menu li {
+	display: inline-block;
+	
+	margin-left: 6px;
+	margin-right: 6px;
+}
+
+.boton {
+	cursor: pointer;
+}
+
+.over {
+	cursor: pointer;
+}
+
+/** TERMINOS **/
+
+.terminos {
+	position: absolute;
+	
+	top: 100px;
+	
+	padding: 30px;
+	
+	font-size: 1.5em;
+}
+
+/** LIKE **/
+#seccion_like {
+	position: fixed;
+	
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	
+	z-index: 2000;
+}
+
+/** ALERTA **/
+#alert {
+	position: absolute;
+	display: none;
+	
+	top: 75px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	
+	z-index: 900;
+}
+
+#alert_background {
+	position: absolute;
+	
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	
+	background-color: #000000;
+	
+	opacity: 0.6;
+	filter: alpha(opacity=60); /* For IE8 and earlier */
+	
+	z-index: 999;
+}
+
+#botonCerrar {
+	position: absolute;
+	
+	top: 177px;
+	right: 150px;
+	
+	z-index: 1000;
+}
+
+#botonCerrar img {
+	height: 20px;
+}
+
+#alert_content {
+	position: absolute;
+	
+	top: 200px;
+	bottom: 200px;
+	left: 150px;
+	right: 150px;
+	
+	background: #FFEF51;
+	
+	border: 6px solid #DBC92F;
+	
+	z-index: 1000;
+}
+
+#alert_content .titulo {
+	position: absolute;
+	display: inline-block;
+	
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 50px;
+	
+	background: #811430;
+	color: #FFEF51;
+	
+	font-size: 45px;
+	line-height: 48px;
+	
+	vertical-align: middle;
+}
+
+#alert_content .mensaje {
+	position: absolute;
+	display: inline-block;
+	
+	top: 60px;
+	left: 0;
+	right: 0;
+	bottom: 60px;
+	
+	padding: 10px;
+	
+	color: #811430;
+	font-size: 24px;
+	
+	text-align: center;
+	vertical-align: middle;
+	
+	overflow: hidden;
+}
+
+#alert_content .boton_aceptar {
+	position: absolute;
+	display: inline-block;
+
+	height: 60px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	
+	text-align: center;
+	vertical-align: middle;
+}
+
+/** DEFAULT **/
+.agregar {
+	position: relative;
+	
+	height: 230px;
+	width: 780px;
+	
+	text-align: center;
+}
+.agregar .libro {
+	position: absolute;
+	
+	top: 0;
+	left: 0;
+	
+	z-index: 15;
+}
+.agregar .btn_agrega {
+	position: absolute;
+	
+	top: 60px;
+	right: 0px;
+	
+	z-index: 10;
+}
+
+/** PRINCIPAL **/
+.contenido .apodos {
+	position: relative;
+	
+	margin: 0 auto;
+	
+	width: 665px;
+	height: 240px;
+	
+	overflow: hidden;
+	
+	text-align: center;
+}
+
+.contenido .apodos .carrusel {
+	position: absolute;
+	
+	top: 0;
+	left: 0;
+	width: 280px;
+	height: 220px;
+}
+
+.contenido .apodos .video {
+}
+
+.contenido .apodos .video iframe {
+	border: 5px solid #9B082E;
+}
+
+.contenido .apodos .carrusel .carrusel_anterior,
+.contenido .apodos .carrusel .carrusel_imagenes,
+.contenido .apodos .carrusel .carrusel_siguiente {
+	display: inline-block;
+	
+	height: 220px;
+	
+	vertical-align: top;
+}
+
+.contenido .apodos .carrusel .carrusel_anterior img,
+.contenido .apodos .carrusel .carrusel_siguiente img {
+	margin-top: 80px;
+	width: 30px;
+}
+
+.contenido .apodos .carrusel .carrusel_imagenes {
+	width: 190px;
+	
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.contenido .apodos .carrusel .carrusel_imagenes .apodo {
+	display: inline-block;
+	
+	height: 220px;
+}
+
+.contenido .apodos .carrusel .carrusel_imagenes .avatar img {
+	border: 5px solid #9B082E;
+	
+	height: 180px;
+	width: 180px;
+}
+
+.contenido .apodos .carrusel .nombre {
+	display: block;
+	
+	margin: 0 auto;
+	
+	
+	background: #9B082E;
+	color: #FFEF51;
+	
+	width: 170px;
+	
+	text-align: center;
+	
+	font-size: 24px;
+}
+
+.contenido .twitter {
+	font-size: 24px;
+}
+
+
+/** MENU DEFINICIONES **/
+.definiciones {
+	position: absolute;
+	
+	top: 75px;
+	right: 13px;
+	
+	width: 20px;
+	height: 624px;
+	
+	z-index: 800;
+}
+
+.definiciones .letra {
+	float: right;
+	clear: right;
+	
+	width: 24px;
+	height: 24px;
+	
+	line-height: 140%;
+	font-size: 170%;
+	text-align: center;
+	
+	background-color: #000000;
+	color: #FFEF51;
+	
+	cursor: pointer;
+}
+
+.definiciones .letra:hover, .definiciones .letra.seleccionado  {
+	background-color: #FFEF51;
+	color: #000000;
+}
+
+.definiciones_apodos {
+	display: none;
+	
+	position: absolute;
+	
+	top: 75px;
+	right: 50px;
+	
+	width: 200px;
+	height: 624px;
+	
+	z-index: 500;
+}
+
+.definiciones_apodos .apodos {
+	visibility: hidden;
+	
+	position: absolute;
+	
+	top: 0px;
+	width: 100%;
+	
+	line-height: 140%;
+	font-size: 170%;
+	
+	background-color: #000000;
+	color: #FFEF51;
+	border: 1px solid #FFEF51;
+	
+	padding: 5px;
+}
+
+.definiciones_apodos .apodos .pagina {
+	display: none;
+}
+
+.definiciones_apodos .apodos .pagina[pagina="1"] {
+	display: block;
+}
+
+.definiciones_apodos .apodos .apodo {
+	height: 24px;
+	
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}
+
+.definiciones_apodos .apodos .apodo:not(.deshabilitado) {
+	cursor: pointer;
+}
+
+.definiciones_apodos .apodos .apodo[par='false'] {
+	background-color: #252525;
+}
+
+.definiciones_apodos .apodos .apodo:not(.deshabilitado):hover {
+	background-color: #FFEF51;
+	color: #000000;
+}
+
+.definiciones_apodos .apodos .paginador {
+	position: relative;
+	
+	width: 100%;
+	height: 24px;
+}
+
+.definiciones_apodos .apodos .paginador img.siguiente {
+	position: absolute;
+	
+	top: 5px;
+	right: 65px;
+}
+
+.definiciones_apodos .apodos .paginador img.anterior {
+	position: absolute;
+	
+	top: 5px;
+	left: 65px;
+}
+
+/** PRINCIPAL **/
+.titulo {
+	position: absolute;
+	
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	height: 75px;
+	
+	font-size: 78px;
+	line-height: 80px;
+	text-align: center;
+	
+	color: #FFEF51;
+	background-color: #9B082E;
+	
+	overflow: hidden;
+}
+
+.boton_ayuda {
+	position: absolute;
+	
+	top: 75px;
+	left: 15px;
+	
+	z-index: 100;
+}
+
+.subtitulo {
+	position: absolute;
+	
+	top: 75px;
+	left: 0px;
+	right: 0px;
+	height: 30px;
+	
+	font-size: 300%;
+	text-align: center;
+	
+	color: #9B082E;
+}
+
+.contenido {
+	position: absolute;
+	
+	top: 100px;
+	left: 13px;
+	right: 33px;
+	bottom: 13px;
+	
+	text-align: center;
+	
+	overflow: hidden;
+}
+
+.contenido .boton_agregar {
+	display: inline-block;
+	
+	margin-top: 35px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.contenido .boton_ver {
+	display: inline-block;
+	
+	margin-top: 35px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.contenido .amigos_con_apodo {
+	position: relative;
+	display: block;
+	
+	width: 650px;
+	height: 54px;
+	
+	margin: 0 auto;
+	margin-top: -8px;
+	margin-bottom: 6px;
+	
+	text-align: left;
+}
+
+.contenido .descripcion {
+	position: absolute;
+	
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 100px;
+	
+	font-size: 21px;
+	padding: 5px;
+	
+	background-color: #000000;
+	color: #FFEF51;
+	
+	overflow: hidden;
+	
+	text-align: right;
+}
+
+.contenido .cuadro {
+	position: absolute;
+	
+	top: 0;
+	left: 110px;
+	bottom: 0;
+	right: 0;
+	
+	background-color: #9B082E;
+	
+	overflow: hidden;
+	white-space: nowrap;
+	
+	vertical-align: top;
+}
+
+.contenido .amigos_con_apodo .flecha {
+	display: inline-block;
+	
+	height: 54px;
+	
+	overflow: hidden;
+}
+
+.contenido .amigos_con_apodo .amigos_portlet {
+	display: inline-block;
+	
+	width: 442px;
+	height: 54px;
+	
+	vertical-align: top;
+	text-align: left;
+	
+	overflow: hidden;
+}
+
+.contenido .amigos_con_apodo .amigo {
+	position: relative;
+	display: inline-block;
+	
+	border: 2px solid #4F0012;
+	
+	width: 50px;
+	height: 50px;
+	
+	overflow: hidden;
+	
+	cursor: pointer;
+	
+	z-index: 10;
+}
+
+.contenido .amigos_con_apodo .amigo .thumbnail {
+	position: absolute;
+	
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	
+	z-index: 10;
+}
+
+.contenido .amigos_con_apodo .amigo .thumbnail img {
+	width: 50px;
+	height: 50px;
+}
+
+.contenido .amigos_con_apodo .amigo:hover .nombre {
+	display: inline-block;
+}
+
+.contenido .amigos_con_apodo .amigo .nombre {
+	display: none;
+	position: absolute;
+	
+	top: 37px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	
+	background: #FFEF51;
+	color: #9B082E;
+	
+	font-size: 13px;
+	
+	text-align: center;
+	vertical-align: bottom;
+	
+	z-index: 20;
+}
+
+
+.contenido .mensaje_amigos_con_apodo {
+	display: block;
+	
+	font-size: 27px;
+	
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.contenido .titulo_destacados {
+	text-align: left;
+	
+	width: 100%;
+}
+
+.contenido .titulo_destacados span {
+	display: inline-block;
+	
+	background-color: #000000;
+	color: #FFEF51;
+	
+	height: 33px;
+	
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 10px;
+	
+	font-size: 22px;
+	line-height: 36px;
+}
+
+.destacados {
+	width: 100%;
+}
+
+.destacados_apodo {
+	position: relative;
+	
+	display: inline-block;
+	
+	width: 228px;
+	height: 381px;
+	
+	margin: 5px;
+}
+
+.destacados_apodo .cuadro_avatar {
+	position: absolute;
+	
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 263px;
+	
+	background-color: #9B082E;
+}
+
+.cuadro_avatar .avatar {
+	position: absolute;
+	
+	top: 9px;
+	left: 9px;
+	
+	width: 210px;
+	height: 210px;
+}
+
+.cuadro_avatar .avatar img {
+	width: 210px;
+	height: 210px;
+}
+
+.cuadro_avatar .nombre {
+	position: absolute;
+	
+	bottom: 0;
+	left: 0;
+	right: 0;
+	
+	text-align: center;
+	
+	font-size: 36px;
+	margin-bottom: 3px;
+	
+	color: #FFEF51;
+}
+
+.destacados_apodo .amigos {
+	position: absolute;
+	
+	bottom: 22px;
+	left: 0;
+	right: 0;
+	height: 84px;
+	
+	padding: 4px;
+	padding-left: 5px;
+	
+	background-color: #9B082E;
+	
+	text-align: left;
+	
+	overflow: hidden;
+}
+
+.amigos .amigo {
+	position: relative;
+	display: inline-block;
+	
+	border: 1px solid #FFEF51;
+	
+	width: 39px;
+	height: 39px;
+	
+	margin-right: 1px;
+	
+	overflow: hidden;
+}
+
+.amigos .amigo .thumbnail {
+	position: absolute;
+	
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	
+	z-index: 10;
+}
+
+.amigos .amigo .thumbnail img {
+	width: 39px;
+	height: 39px;
+}
+
+.amigos .amigo:hover .nombre {
+	display: inline-block;
+}
+
+.amigos .amigo .nombre {
+	display: none;
+	position: absolute;
+	
+	top: 30px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	
+	background: #FFEF51;
+	color: #9B082E;
+	
+	font-size: 9px;
+	
+	text-align: center;
+	vertical-align: bottom;
+	
+	z-index: 20;
+}
+
+.destacados_apodo .botones {
+	position: absolute;
+	
+	bottom: 0;
+	left: 0;
+	right: 0;
+	
+	height: 22px;
+}
+
+.botones .boton_ver_mas {
+	position: absolute;
+	
+	top: 0;
+	bottom: 0;
+	left: 0;
+	
+	width: 55px;
+	
+	background: #000000;
+	color: #FFEF51;
+	
+	text-align: center;
+	
+	font-size: 16px;
+	padding-top: 2px;
+}
+
+/** PERMISOS **/
+.permisos {
+	position: absolute;
+	
+	top: 100px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	
+	text-align: left;
+	
+	overflow: hidden;
+}
+
+.permisos .libro {
+	position: absolute;
+	
+	top: 20px;
+	left: 0;
+	
+	z-index: 1;
+}
+
+.permisos .pasos {
+	position: absolute;
+	
+	top: 120px;
+	right: 30px;
+	
+	z-index: 10;
+}
+
+.permisos .pasos .pasos_titulo, .permisos .pasos .paso {
+	width: 150px;
+	height: 60px;
+	
+	margin-bottom: 1px;
+}
+
+.permisos .pasos .pasos_titulo {
+	color: #FFEF51;
+	background-color: #000000;
+	
+	text-align: center;
+	
+	font-size: 64px;
+}
+
+.permisos .pasos .paso {
+	position: relative;
+	
+	color: #FFEF51;
+	background-color: #9B082E;
+}
+
+.permisos .pasos .paso .numero {
+	position: absolute;
+	display: block;
+	
+	top: 12px;
+	left: 7px;
+	width: 30px;
+	height: 30px;
+}
+
+.permisos .pasos .paso .texto {
+	position: absolute;
+	display: block;
+	
+	bottom: 0;
+	right: 0;
+	width: 105px;
+	height: 47px;
+	
+	font-size: 20px;
+}
+
+.permisos .pasos .boton_empezar {
+	width: 150px;
+	height: 41px;
+	
+	margin-bottom: 1px;
+	
+	color: #FFEF51;
+	background-color: #000000;
+	
+	text-align: center;
+	
+	font-size: 42px;
+	
+	cursor: pointer;
+}
+
+.permisos .pasos .boton_empezar:hover {
+	background-color: #9B082E;
+}
+
+.permisos .manita {
+	position: absolute;
+	
+	top: 364px;
+	right: 21px;
+
+	z-index: 10;
+}
+
+.permisos .usuarios {
+	position: absolute;
+	
+	bottom: 25px;
+	left: 25px;
+
+	z-index: 10;
+}
+
+.permisos .usuarios_titulo {
+	background-color: #9B082E;
+	color: #FFEF51;
+	
+	font-size: 24px;
+	
+	padding-top: 0.2em;
+	padding-left: 0.4em;
+	padding-right: 0.4em;
+	
+	width: 200px;
+}
+
+.permisos .usuarios_tabla {
+	background-color: #9B082E;
+	color: #FFEF51;
+	
+	width: 746px;
+	height: 58px;
+	
+	padding: 4px;
+	padding-left: 10px;
+	
+	overflow: hidden;
+}
+
+.permisos .usuarios .amigo {
+	position: relative;
+	display: inline-block;
+	
+	border: 1px solid #FFEF51;
+	
+	width: 50px;
+	height: 50px;
+	
+	margin-right: 3px;
+	margin-top: 3px;
+	margin-bottom: 3px;
+	
+	overflow: hidden;
+}
+
+.permisos .usuarios .amigo .thumbnail {
+	position: absolute;
+	
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	
+	z-index: 10;
+}
+
+.permisos .usuarios .amigo .thumbnail img {
+	width: 50px;
+	height: 50px;
+}
+
+.permisos .usuarios .amigo:hover .nombre {
+	display: inline-block;
+}
+
+.permisos .usuarios .amigo .nombre {
+	display: none;
+	position: absolute;
+	
+	top: 37px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	
+	background: #FFEF51;
+	color: #9B082E;
+	
+	font-size: 13px;
+	
+	text-align: center;
+	vertical-align: bottom;
+	
+	z-index: 20;
+}
+
+/** APODOS **/
+.contenido .boton_asignados {
+	display: inline-block;
+	
+	margin-top: 0px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.contenido .boton_creados {
+	display: inline-block;
+	
+	margin-top: 0px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.contenido .mensaje {
+	font-size: 36px;
+	
+	margin-top: 15px;
+}
+
+.mis_apodos .flechas {
+	display: inline-block;
+	
+	vertical-align: top;
+	
+	margin-top: 210px;
+}
+
+.portlet_apodos {
+	display: inline-block;
+	
+	width: 610px;
+	height: 540px;
+	
+	vertical-align: top;
+	text-align: left;
+	
+	overflow: hidden;
+}
+
+.apodo_horizontal {
+	position: relative;
+	display: inline-block;
+	
+	width: 590px;
+	height: 170px;
+	
+	margin: 5px;
+	
+	overflow: hidden;
+}
+
+.apodo_horizontal .cuadro_avatar {
+	position: absolute;
+	
+	top: 0;
+	left: 0;
+	bottom: 20px;
+	width: 130px;
+	
+	background-color: #9B082E;
+}
+
+.apodo_horizontal .cuadro_avatar .avatar {
+	position: absolute;
+	
+	top: 5px;
+	left: 5px;
+	
+	width: 120px;
+	height: 120px;
+}
+
+.apodo_horizontal .cuadro_avatar .avatar img {
+	width: 120px;
+	height: 120px;
+}
+
+.apodo_horizontal .cuadro_avatar .nombre {
+	position: absolute;
+	
+	bottom: 0;
+	left: 0;
+	width: 130px;
+	
+	text-align: center;
+	
+	font-size: 20px;
+	
+	color: #FFEF51;
+}
+
+.apodo_horizontal .solicitud, .apodo_horizontal .estado {
+	position: absolute;
+	
+	top: 0;
+	left: 135px;
+	bottom: 20px;
+	width: 135px;
+	
+	padding: 5px;
+	
+	background-color: #FFEF51;
+	border: 5px solid #9B082E;
+	
+	text-align: center;
+	
+	font-size: 18px;
+	
+	overflow: hidden;
+}
+
+.apodo_horizontal .solicitud .btn_acepto {
+	position: absolute;
+	
+	bottom: 3px;
+	
+	height: 27px;
+	left: 5px;
+}
+
+.apodo_horizontal .estado .btn_crear {
+	position: absolute;
+	
+	bottom: 7px;
+	left: 4px;
+	
+	height: 28px;
+}
+
+.apodo_horizontal .amigos {
+	position: absolute;
+	
+	top: 0;
+	left: 135px;
+	right: 0;
+	bottom: 20px;
+	
+	width: 145px;
+	
+	padding: 4px;
+	padding-left: 5px;
+	
+	background-color: #9B082E;
+	
+	text-align: left;
+	
+	overflow: hidden;
+}
+
+.apodo_horizontal .amigos .mensaje {
+	font-size: 20px;
+	
+	color: #FFEF51;
+	
+	text-align: center;
+}
+
+.apodo_horizontal .amigos .amigo {
+	position: relative;
+	display: inline-block;
+	
+	border: 1px solid #FFEF51;
+	
+	width: 44px;
+	height: 44px;
+	
+	margin-right: 1px;
+	
+	overflow: hidden;
+}
+
+.apodo_horizontal .amigos .amigo .thumbnail {
+	position: absolute;
+	
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	
+	z-index: 10;
+}
+
+.apodo_horizontal .amigos .amigo .thumbnail img {
+	width: 44px;
+	height: 44px;
+}
+
+.apodo_horizontal .amigos .amigo:hover .nombre {
+	display: inline-block;
+}
+
+.apodo_horizontal .amigos .amigo .nombre {
+	display: none;
+	position: absolute;
+	
+	top: 34px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	
+	background: #FFEF51;
+	color: #9B082E;
+	
+	font-size: 11px;
+	
+	text-align: center;
+	vertical-align: bottom;
+	
+	z-index: 20;
+}
+
+.apodo_horizontal .botones {
+	position: absolute;
+	
+	bottom: 0;
+	left: 0;
+	right: 0;
+	
+	height: 20px;
+}
+
+.apodo_horizontal .botones .boton_ver_mas {
+	position: absolute;
+	
+	top: 0;
+	bottom: 0;
+	left: 0;
+	
+	width: 50px;
+	
+	background: #000000;
+	color: #FFEF51;
+	
+	text-align: center;
+	
+	font-size: 14px;
+	padding-top: 3px;
+}
+
+.apodo_horizontal .apodo_descripcion_cuadro {
+	position: absolute;
+	
+	top: 0px;
+	left: 294px;
+	width: 290px;
+	height: 145px;
+	
+	background-color: #9B082E;
+}
+
+.apodo_horizontal .apodo_descripcion_texto {
+	position: absolute;
+	
+	top: 0px;
+	left: 0px;
+			
+	width: 280px;
+	height: 135px;
+	
+	padding-left: 5px;
+	padding-top: 5px;
+	
+	border: 5px solid #9B082E;
+	
+	background-color: #FFEF51;
+	color: #9B082E;
+	
+	text-align: left;
+	
+	font-size: 17px;
+	
+	overflow: hidden;
+}
+
+.apodo_horizontal .apodo_descripcion_cuadro .btn_rechazar {
+	position: absolute;
+	
+	bottom: -31px;
+	right: -7px;
+	
+	height: 28px;
+	
+	z-index: 100;
+}
+
+/** APODO **/
+
+
+/** CREADOR **/
+.creador_apodo {
+	position: absolute;
+	
+	top: 70px;
+	left: 13px;
+	right: 13px;
+	bottom: 13px;
+	
+	text-align: center;
+	
+	overflow: hidden;
+}
+
+.creador_apodo .paso {
+	position: absolute;
+	
+	top: 5px;
+	right: 3px;
+	width: 64px;
+	height: 25px;
+	
+	font-size: 22px;
+	
+	padding-top: 3px;
+	
+	background-color: #000000;
+	color: #FFEF51;	
+}
+
+.creador_apodo .creador_nombre {
+	position: relative;
+	display: block;
+	
+	width: 500px;
+	height: 41px;
+	
+	text-align: center;
+	
+	margin-top: 40px;
+	margin-bottom: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	
+	font-size: 40px;
+	color: #9B082E;
+}
+
+.creador_apodo .checkboxes {
+	position: absolute;
+	display: inline-block;
+	
+	top: 0px;
+	left: 0px;
+	bottom: 0px;
+	width: 215px;
+	
+	vertical-align: middle;
+}
+
+.creador_apodo .checkbox {
+	position: relative;
+	display: inline-block;
+	
+	width: 40px;
+	height: 41px;
+	
+	background: url('../images/creador_checkbox.png');
+	
+	cursor: pointer;
+}
+
+.creador_apodo .checkbox img {
+	display: none;
+	position: absolute;
+	
+	top: -12px;
+	right: -12px;
+}
+
+.creador_apodo .campo {
+	position: absolute;
+	display: inline-block;
+	
+	top: 0px;
+	right: 0px;
+	bottom: 5px;
+	width: 280px;
+	
+	vertical-align: top;
+}
+
+.creador_apodo input#nombre {
+	background-color: #9B082E;
+	color: #FFEF51;
+	
+	width: 270px;
+	
+	padding-top: 3px;
+	padding-right: 3px;
+	
+	font-size: 24px;
+	
+	text-align: center;
+	
+	font-family: Aldo, Helvetica, Arial, sans-serif;
+	text-transform: uppercase;
+}
+
+.creador_apodo .titulo_creador {
+	text-align: left;
+	
+	width: 100%;
+}
+
+.creador_apodo .titulo_creador span {
+	display: inline-block;
+	
+	background-color: #000000;
+	color: #FFEF51;
+	
+	height: 33px;
+	
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 10px;
+	
+	font-size: 22px;
+	line-height: 36px;
+}
+
+.creador_apodo .creador_avatar {
+	position: relative;
+	margin: 0 auto;
+	
+	width: 760px;
+	height: 402px;
+	width: 763px\0; /* IE8, IE9 */
+	
+	background-color: #9B082E;
+}
+.ie10 .creador_apodo .creador_avatar {
+	width: 763px !important; /* IE10 */
+}
+@-moz-document url-prefix() { 
+	.creador_apodo .creador_avatar {
+		width: 763px !important;
+	}
+}
+
+.creador_avatar .categorias {
+	position: absolute;
+	
+	top: 7px;
+	left: 7px;
+	width: 260px;
+	height: 70px;
+	
+	text-align: left;
+	
+	color: #FFEF51;
+}
+
+.creador_avatar .categorias .categoria {
+	display: inline-block;
+}
+
+.creador_avatar .categorias .categoria .imagen {
+	position: relative;
+	
+	margin-right: 6px;
+	
+	background-color: #FFEF51;
+}
+
+.creador_avatar .categorias .categoria .imagen img {
+	width: 50px;
+	height: 50px;
+}
+
+.creador_avatar .categorias .categoria .imagen .cuadro {	
+	display: none;
+	position: absolute;
+	
+	top: 0;
+	left: 0;
+	width: 50px;
+	height: 50px;
+	
+	background-color: #FFEF51;
+	
+	opacity: 0.6;
+	filter: alpha(opacity=60); /* For IE8 and earlier */
+	
+	z-index: 10;
+}
+
+.creador_avatar .categorias .seleccionado .cuadro {
+	display: block !important;
+}
+
+.creador_avatar .categorias .categoria .nombre {
+	width: 50px;
+	
+	text-align: center;
+}
+
+.creador_avatar .objetos {
+	display: none;
+	position: absolute;
+	
+	top: 7px;
+	right: 7px;
+	width: 490px;
+	height: 70px;
+	
+	text-align: right;
+	
+	color: #FFEF51;
+}
+
+.creador_avatar .objetos .flecha {
+	display: inline-block;
+	
+	height: 54px;
+	
+	overflow: hidden;
+}
+
+.creador_avatar .objetos .objetos_portlet {
+	position: relative;
+	display: inline-block;
+	
+	width: 378px;
+	height: 54px;
+	
+	overflow: hidden;
+	white-space: nowrap;
+	
+	vertical-align: top;
+}
+
+.creador_avatar .objetos .objeto {
+	display: inline-block;
+	margin: 0;
+	
+	vertical-align: top;
+}
+
+.creador_avatar .objetos .objeto > .imagen {
+	cursor: pointer;
+}
+
+.creador_avatar .objetos .objeto .imagen_vacia {
+	margin: 0;
+	
+	border: 2px solid #4F0012;
+	
+	width: 50px;
+	height: 50px;
+	
+	background-color: #FFEF51;
+}
+
+.creador_avatar .objetos .objeto .imagen {
+	position: relative;
+	margin: 0;
+	
+	border: 2px solid #4F0012;
+	
+	width: 50px;
+	height: 50px;
+	
+	background-color: #FFEF51;
+}
+
+.creador_avatar .objetos .objeto .imagen img {	
+	width: 50px;
+	height: 50px;
+}
+
+.creador_avatar .objetos .objeto .imagen .cuadro {	
+	display: none;
+	position: absolute;
+	
+	top: 0;
+	left: 0;
+	width: 50px;
+	height: 50px;
+	
+	background-color: #FFEF51;
+	
+	opacity: 0.6;
+	filter: alpha(opacity=60); /* For IE8 and earlier */
+	
+	z-index: 10;
+}
+
+.creador_avatar .objetos .seleccionado .cuadro {
+	display: block !important;
+}
+
+.creador_avatar .cuerpos {
+	position: absolute;
+	
+	top: 120px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	
+	text-align: center;
+	
+	color: #FFEF51;
+}
+
+.creador_avatar .cuerpos .flecha {
+	display: inline-block;
+	
+	height: 54px;
+	
+	overflow: hidden;
+}
+
+.creador_avatar .cuerpos .cuerpos_portlet {
+	position: relative;
+	display: inline-block;
+	
+	width: 658px;
+	height: 260px;
+	
+	overflow: hidden;
+	white-space: nowrap;
+	
+	vertical-align: middle;
+}
+
+.creador_avatar .cuerpos .cuerpo {
+	position: relative;
+	
+	display: inline-block;
+	margin: 0;
+	
+	vertical-align: top;
+}
+
+.creador_avatar .cuerpos .cuerpo:first-child {
+	margin-left: 202px;
+}
+
+.creador_avatar .cuerpos .cuerpo:last-child {
+	margin-right: 202px;
+}
+
+.creador_avatar .cuerpos .cuerpo .imagen {
+	position: relative;
+	
+	margin: 0;
+	margin-right: 22px;
+	
+	width: 170px;
+	height: 170px;
+	
+	-webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.creador_avatar .cuerpos .cuerpo .imagen_centro {
+	width: 250px !important;
+	height: 250px !important;
+	
+	-webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.creador_avatar .cuerpos .cuerpo .imagen img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	
+	width: 170px;
+	height: 170px;
+	
+	margin-top: 35px;
+	
+	border: 5px solid #000000;
+	
+	z-index: 10;
+	
+	-webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+.creador_avatar .cuerpos .cuerpo .imagen img.imagen_cuerpo {
+	background-color: #FFEF51;
+	
+	z-index: 1 !important;
+}
+
+.creador_avatar .cuerpos .cuerpo .imagen_centro img {
+	width: 250px !important;
+	height: 250px !important;
+	
+	margin-top: 0px !important;
+}
+
+.creador_apodo .botones {
+	margin: 0 auto;
+	
+	width: 760px;
+	height: 61px;
+	width: 763px\0; /* IE8, IE9 */
+	
+	background-color: #8A0225;
+}
+.ie10 .creador_apodo .botones {
+	width: 763px !important; /* IE10 */
+}
+@-moz-document url-prefix() { 
+	.creador_apodo .botones {
+		width: 763px !important;
+	}
+}
+
+.creador_apodo .botones img {
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.creador_apodo .creador_descripcion {
+	position: relative;
+	
+	width: 740px;
+	height: 240px;
+	
+	margin: 0 auto;
+	margin-top: 30px;
+	
+	color: #9B082E;
+}
+
+.creador_apodo .creador_descripcion .avatar {
+	position: absolute;
+	
+	top: 0px;
+	left: 0px;
+	
+	border: 8px solid #9B082E;
+	color: #FFEF51;
+}
+
+.creador_apodo .creador_descripcion .avatar img {
+	width: 206px;
+	height: 206px;
+}
+
+.creador_apodo .creador_descripcion .nombre {
+	position: absolute;
+	display: inline-block;
+	
+	top: 0;
+	left: 245px;
+	right: 0;
+	
+	font-size: 44px;
+	
+	text-align: left;
+	vertical-align: bottom;
+}
+
+.creador_apodo .creador_descripcion .descripcion {
+	position: absolute;
+	
+	top: 85px;
+	left: 245px;
+	
+	height: 115px;
+	
+	font-size: 22px;
+	
+	text-align: left;
+}
+@-moz-document url-prefix() { 
+	.creador_apodo .creador_descripcion .descripcion {
+		top: 78px !important;
+	}
+}
+
+.creador_apodo .creador_descripcion textarea#descripcion {
+	background-color: #9B082E;
+	color: #FFEF51;
+	
+	width: 480px;
+	
+	padding-top: 3px;
+	padding-right: 3px;
+	
+	font-size: 24px;
+	
+	text-align: left;
+	
+	font-family: Aldo, Helvetica, Arial, sans-serif;
+	text-transform: uppercase;
+	
+	 resize: none;
+}
+
+.creador_apodo .creador_amigos {
+	position: relative;
+	
+	width: 756px;
+	height: 287px;
+	
+	margin: 0 auto;
+}
+
+.creador_apodo .creador_amigos .titulo_amigos {
+	background-color: #9B082E;
+	color: #FFEF51;
+	
+	font-size: 24px;
+	
+	padding-top: 0.2em;
+	padding-left: 0.4em;
+	padding-right: 0.4em;
+	
+	width: 320px;
+	
+	text-align: left;
+}
+
+.creador_apodo .creador_amigos .cuadro_amigos {
+	width: 746px;
+	height: 240px;
+	
+	padding: 4px;
+	
+	overflow: hidden;
+	overflow-y: scroll;
+	
+	background-color: #9B082E;
+	
+	text-align: left;
+}
+
+.creador_apodo .creador_amigos .cuadro_amigos .amigo {
+	position: relative;
+	display: inline-block;
+	
+	border: 1px solid #FFEF51;
+	
+	width: 50px;
+	height: 50px;
+	
+	margin-right: 2px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	
+	overflow: hidden;
+	
+	cursor: pointer;
+}
+
+.creador_apodo .creador_amigos .cuadro_amigos .amigo .thumbnail {
+	position: absolute;
+	
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	
+	z-index: 10;
+}
+
+.creador_apodo .creador_amigos .cuadro_amigos .amigo .thumbnail img {
+	width: 50px;
+	height: 50px;
+}
+
+.creador_apodo .creador_amigos .cuadro_amigos .amigo:hover .nombre {
+	display: inline-block;
+}
+
+.creador_apodo .creador_amigos .cuadro_amigos .amigo .nombre {
+	display: none;
+	position: absolute;
+	
+	top: 37px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	
+	background: #FFEF51;
+	color: #9B082E;
+	
+	font-size: 13px;
+	
+	text-align: center;
+	vertical-align: bottom;
+	
+	z-index: 20;
+}
+
+.creador_apodo .creador_amigos .cuadro_amigos .amigo .cuadro {
+	display: none;
+	position: absolute;
+	
+	top: 0;
+	left: 0;
+	width: 50px;
+	height: 50px;
+	
+	background-color: #FFEF51;
+	
+	opacity: 0.6;
+	filter: alpha(opacity=60); /* For IE8 and earlier */
+	
+	z-index: 10;
+}
+
+.creador_apodo .creador_amigos .cuadro_amigos .amigo.seleccionado .cuadro {
+	display: block !important;
+}
+
+.creador_apodo .creador_amigos .cuadro_amigos .amigo .paloma {
+	display: none;
+	position: absolute;
+	
+	top: 0;
+	right: 0;
+	
+	width: 20px;
+	
+	z-index: 15;
+}
+
+.creador_apodo .creador_amigos .cuadro_amigos .amigo .paloma img {
+	width: 20px;
+}
+
+
+.creador_apodo .creador_amigos .cuadro_amigos .amigo.seleccionado .paloma {
+	display: block !important;
+}
+
+
+
+
+
+
+.creador_apodo .creador_confirmacion {
+	position: relative;
+	
+	width: 740px;
+	height: 240px;
+	
+	margin: 0 auto;
+	margin-top: 30px;
+	
+	color: #9B082E;
+}
+
+.creador_apodo .creador_confirmacion .avatar {
+	position: absolute;
+	
+	top: 0px;
+	left: 0px;
+	
+	border: 8px solid #9B082E;
+	color: #FFEF51;
+}
+
+.creador_apodo .creador_confirmacion .avatar img {
+	width: 206px;
+	height: 206px;
+}
+
+.creador_apodo .creador_confirmacion .nombre {
+	position: absolute;
+	display: inline-block;
+	
+	top: 0;
+	left: 245px;
+	right: 0;
+	
+	font-size: 44px;
+	
+	text-align: left;
+	vertical-align: bottom;
+}
+
+.creador_apodo .creador_confirmacion .descripcion {
+	position: absolute;
+	
+	top: 85px;
+	left: 245px;
+	
+	font-size: 22px;
+	
+	text-align: left;
+}
+
+.creador_apodo .creador_confirmacion textarea#descripcion {
+	background-color: #9B082E;
+	color: #FFEF51;
+	
+	width: 480px;
+	
+	padding-top: 3px;
+	padding-right: 3px;
+	
+	font-size: 24px;
+	
+	text-align: left;
+	
+	font-family: Aldo, Helvetica, Arial, sans-serif;
+	text-transform: uppercase;
+	
+	 resize: none;
+}
+
+.creador_apodo .creador_confirmacion_amigos {
+	position: relative;
+	
+	width: 756px;
+	height: 287px;
+	
+	margin: 0 auto;
+}
+
+.creador_apodo .creador_confirmacion_amigos .titulo_amigos {
+	background-color: #9B082E;
+	color: #FFEF51;
+	
+	font-size: 24px;
+	
+	padding-top: 0.2em;
+	padding-left: 0.4em;
+	padding-right: 0.4em;
+	
+	width: 320px;
+	
+	text-align: left;
+}
+
+.creador_apodo .creador_confirmacion_amigos .cuadro_amigos {
+	width: 746px;
+	height: 240px;
+	
+	padding: 4px;
+	
+	overflow: hidden;
+	overflow-y: scroll;
+	
+	background-color: #9B082E;
+	
+	text-align: left;
+}
+
+.creador_apodo .creador_confirmacion_amigos .cuadro_amigos .amigo {
+	position: relative;
+	display: inline-block;
+	
+	border: 1px solid #FFEF51;
+	
+	width: 50px;
+	height: 50px;
+	
+	margin-right: 2px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	
+	overflow: hidden;
+	
+	cursor: pointer;
+}
+
+.creador_apodo .creador_confirmacion_amigos .cuadro_amigos .amigo .thumbnail {
+	position: absolute;
+	
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	
+	z-index: 10;
+}
+
+.creador_apodo .creador_confirmacion_amigos .cuadro_amigos .amigo .thumbnail img {
+	width: 50px;
+	height: 50px;
+}
+
+.creador_apodo .creador_confirmacion_amigos .cuadro_amigos .amigo:hover .nombre {
+	display: inline-block;
+}
+
+.creador_apodo .creador_confirmacion_amigos .cuadro_amigos .amigo .nombre {
+	display: none;
+	position: absolute;
+	
+	top: 37px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	
+	background: #FFEF51;
+	color: #9B082E;
+	
+	font-size: 13px;
+	
+	text-align: center;
+	vertical-align: bottom;
+	
+	z-index: 20;
+}
+
+.creador_apodo .creador_confirmacion_amigos .cuadro_amigos .amigo .cuadro {
+	display: none;
+	position: absolute;
+	
+	top: 0;
+	left: 0;
+	width: 50px;
+	height: 50px;
+	
+	background-color: #FFEF51;
+	
+	opacity: 0.6;
+	filter: alpha(opacity=60); /* For IE8 and earlier */
+	
+	z-index: 10;
+}
+
+.creador_apodo .creador_confirmacion_amigos .cuadro_amigos .amigo.seleccionado .cuadro {
+	display: block !important;
+}
+
+.creador_apodo .creador_confirmacion_amigos .cuadro_amigos .amigo .paloma {
+	display: none;
+	position: absolute;
+	
+	top: 0;
+	right: 0;
+	
+	width: 20px;
+	
+	z-index: 15;
+}
+
+.creador_apodo .creador_confirmacion_amigos .cuadro_amigos .amigo .paloma img {
+	width: 20px;
+}
+
+
+.creador_apodo .creador_confirmacion_amigos .cuadro_amigos .amigo.seleccionado .paloma {
+	display: block !important;
+}
